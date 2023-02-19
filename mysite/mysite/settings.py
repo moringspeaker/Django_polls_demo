@@ -26,7 +26,7 @@ SECRET_KEY = "django-insecure-%=g34odx*d8apw2w5x+y2^m$h+ax3^o+!#tbrc#)bd@vi@!7m&
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    'django-polls-dev2.elasticbeanstalk.com',  # make sure to replace it with your own EB CNAME
+    'django-polls-dev.us-west-2.elasticbeanstalk.com',  # make sure to replace it with your own EB CNAME
 ]
 
 
