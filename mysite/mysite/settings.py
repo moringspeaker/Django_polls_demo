@@ -27,6 +27,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     'django-polls-dev.us-west-2.elasticbeanstalk.com',  # make sure to replace it with your own EB CNAME
+    'localhost',
+    '127.0.0.1'
 ]
 
 
@@ -39,6 +41,7 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "polls.apps.PollsConfig",
 ]
 
 MIDDLEWARE = [
