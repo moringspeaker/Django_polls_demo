@@ -21,12 +21,14 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: don't run with debug turned on in production!
-SECRET_KEY="21r4y+s4^fib+wo2*p4nljwhuu+by)u12yab!t9k#73dq&6t%"
+SECRET_KEY = "21r4y+s4^fib+wo2*p4nljwhuu+by)u12yab!t9k#73dq&6t%"
 
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1',
-                 'mysite-polls-dev.us-west-2.elasticbeanstalk.com',]
+ALLOWED_HOSTS = [
+    "127.0.0.1",
+    "mysite-polls-dev.us-west-2.elasticbeanstalk.com",
+]
 
 
 # Application definition
@@ -39,17 +41,17 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "polls.apps.PollsConfig",
-    'storages',
+    "storages",
 ]
-if 'AWS_STORAGE_BUCKET_NAME' in os.environ:
-    STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-    DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+if "AWS_STORAGE_BUCKET_NAME" in os.environ:
+    STATICFILES_STORAGE = "storages.backends.s3boto3.S3Boto3Storage"
+    DEFAULT_FILE_STORAGE = "storages.backends.s3boto3.S3Boto3Storage"
 
-    AWS_STORAGE_BUCKET_NAME = os.environ['AWS_STORAGE_BUCKET_NAME']
-    AWS_S3_REGION_NAME = os.environ['AWS_S3_REGION_NAME']
+    AWS_STORAGE_BUCKET_NAME = os.environ["AWS_STORAGE_BUCKET_NAME"]
+    AWS_S3_REGION_NAME = os.environ["AWS_S3_REGION_NAME"]
 
-    AWS_S3_ACCESS_KEY_ID = os.environ['AWS_ACCESS_KEY_ID']
-    AWS_S3_SECRET_ACCESS_KEY = os.environ['AWS_SECRET_ACCESS_KEY']
+    AWS_S3_ACCESS_KEY_ID = os.environ["AWS_ACCESS_KEY_ID"]
+    AWS_S3_SECRET_ACCESS_KEY = os.environ["AWS_SECRET_ACCESS_KEY"]
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
@@ -90,20 +92,20 @@ WSGI_APPLICATION = "mysite.wsgi.application"
 #         "NAME": BASE_DIR / "db.sqlite3",
 #     }
 # }
-if 'RDS_DB_NAME' in os.environ:
+if "RDS_DB_NAME" in os.environ:
     DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.postgresql_psycopg2',
-            'NAME': os.environ['RDS_DB_NAME'],
-            'USER': os.environ['RDS_USERNAME'],
-            'PASSWORD': os.environ['RDS_PASSWORD'],
-            'HOST': os.environ['RDS_HOSTNAME'],
-            'PORT': os.environ['RDS_PORT'],
+        "default": {
+            "ENGINE": "django.db.backends.postgresql_psycopg2",
+            "NAME": os.environ["RDS_DB_NAME"],
+            "USER": os.environ["RDS_USERNAME"],
+            "PASSWORD": os.environ["RDS_PASSWORD"],
+            "HOST": os.environ["RDS_HOSTNAME"],
+            "PORT": os.environ["RDS_PORT"],
         }
     }
 else:
     DATABASES = {
-        'default': {
+        "default": {
             "ENGINE": "django.db.backends.postgresql_psycopg2",
             "NAME": "polls",
             "USER": "postgres",
